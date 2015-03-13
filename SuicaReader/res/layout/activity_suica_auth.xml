@@ -1,0 +1,19 @@
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_height="fill_parent"
+  	android:layout_width="fill_parent"
+    tools:context="${relativePackage}.${activityClass}" >
+	<LinearLayout 
+    	android:id="@+id/LinearLayout"
+    	android:orientation="vertical"
+    	android:layout_height="fill_parent"
+    	android:layout_width="fill_parent">
+    	<TextView
+        	android:id="@+id/textView1"
+        	android:layout_width="wrap_content"
+        	android:layout_height="wrap_content"
+        	android:layout_alignParentTop="true"
+        	android:layout_centerHorizontal="true"
+        	android:text="" />
+    </LinearLayout>
+</ScrollView>
