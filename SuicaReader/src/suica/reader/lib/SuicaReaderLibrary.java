@@ -3,7 +3,7 @@ package suica.reader.lib;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 
-import suica.reaer.dto.SuicaDto;
+import suica.reader.dto.SuicaDto;
 
 public class SuicaReaderLibrary {
 	/**

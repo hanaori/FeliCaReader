@@ -1,4 +1,4 @@
-package suica.reaer.dto;
+package suica.reader.dto;
 
 import android.util.Log;
 import android.util.SparseArray;
