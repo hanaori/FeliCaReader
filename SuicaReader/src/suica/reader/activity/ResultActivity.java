@@ -1,9 +1,12 @@
 package suica.reader.activity;
 
-import jp.kronos.suicareader.R;
+import suica.reader.activity.R;
+import suica.reader.dao.StationDao;
 import suica.reader.lib.SuicaReaderLibrary;
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
+import android.database.sqlite.SQLiteDatabase;
 import android.nfc.NfcAdapter;
 import android.nfc.Tag;
 import android.nfc.tech.NfcF;
@@ -13,7 +16,6 @@ import android.widget.TextView;
 
 
 public class ResultActivity extends Activity {
-
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -34,7 +36,7 @@ public class ResultActivity extends Activity {
             TextView textView1 = (TextView) this.findViewById(R.id.textView1);
             try {
                 // Suica読み取り
-                byte[] request = reader.readWithoutEncryption(idm, 10);
+                byte[] request = reader.readWithoutEncryption(idm);
                 ResultActivity suicaAuth = new ResultActivity();
                 // Suicaにリクエスト送信
                 NfcF nfc = NfcF.get(tag);
@@ -42,11 +44,17 @@ public class ResultActivity extends Activity {
                 byte[] responce = nfc.transceive(request);
                 nfc.close();
                 // 結果を文字列に変換して表示
-                textView1.setText(reader.parse(responce));
+                textView1.setText(reader.parse(responce, this));
             } catch (Exception e) {
             	e.printStackTrace();
             	textView1.setText("読み取れません。");
             }
         }
 	}
+	
+	@Override
+	protected void onDestroy() {
+		super.onDestroy();
+	}
+	
 }

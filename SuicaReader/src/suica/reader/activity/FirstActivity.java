@@ -1,6 +1,6 @@
 package suica.reader.activity;
 
-import jp.kronos.suicareader.R;
+import suica.reader.activity.R;
 import android.app.Activity;
 import android.app.PendingIntent;
 import android.content.ActivityNotFoundException;
